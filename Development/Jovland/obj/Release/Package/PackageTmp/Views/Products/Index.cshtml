@@ -1,0 +1,311 @@
+﻿@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@section scripts{
+    <link href="@Href("~/Content/customer/home.products.css")" type="text/css" rel="stylesheet"/>
+    <link href="@Href("~/Content/zTreeStyle/metro.css")" type="text/css" rel="stylesheet"/>
+    <script src="@Href("~/Scripts/zTree/jquery.ztree.all-3.5.min.js")" type="text/javascript" ></script>
+
+    <!--JSRender插件-->
+    <script src="@Url.Content("~/Scripts/JSRender.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Scripts/jqthumb/jqthumb.js")" type="text/javascript"></script>
+
+    <link href="@Href("~/Content/propertyPhoto/prettyPhoto.css")" type="text/css" rel="stylesheet"/>
+    <script src="@Href("~/Scripts/jquery.prettyPhoto.js")" type="text/javascript" ></script>
+
+    <!--jqeasyui-->
+    <link href="@Url.Content("~/Content/easyuithemes/icon.css")" rel="stylesheet" type="text/css" />
+    <link href="@Url.Content("~/Content/easyuithemes/bootstrap/easyui.css")" rel="stylesheet" type="text/css" />
+    <script src="@Url.Content("~/Scripts/jqeasyui/jquery.easyui.min.js")" type="text/javascript"></script>
+
+    <script type="text/javascript">
+
+        //主查询
+        var mainQueryPage = {
+            PageIndex: 1,
+            PageSize: 20,
+            CategoryType: 'rs'
+        };
+        //子查询
+        var subQueryPage = {
+            PageIndex: 1,
+            PageSize: 20
+        };
+
+        var zTree;
+        var demoIframe;
+        var setting = {
+            check: {
+                enable: false
+            },
+            view: {
+                addHoverDom: function (treeId, treeNode) { },
+                removeHoverDom: function (treeId, treeNode) { },
+                dblClickExpand: true,
+                showLine: true,
+                selectedMulti: false
+            },
+            data: {
+                simpleData: {
+                    enable: true,
+                    idKey: "id",
+                    pIdKey: "pId",
+                    rootPId: ""
+                }
+            },
+            callback: {
+                beforeClick: function (treeId, treeNode) {
+                    if (treeNode.file == undefined || treeNode.file == '') return;
+                    $("#lblProductCategoryName").text(treeNode.name);
+                    queryData(treeNode.file, 1, 20);
+                }
+            }
+        };
+
+
+        var zNodes = [
+            { id: 1, pId: 0, name: "Container Securing Systems", file: "", open: true },
+            { id: 101, pId: 1, name: "Raised Socketk", file: "rs" },
+            { id: 102, pId: 1, name: "Lashing Eye Plate", file: "lep" },
+            { id: 103, pId: 1, name: "Semi-automatic Twistlock", file: "sat" },
+            { id: 2, pId: 0, name: "Car Lashing Systems", file: "", open: true },
+            { id: 201, pId: 2, name: "Flush Cloverleaf", file: "fc" },
+            { id: 206, pId: 2, name: "Lashing Chain", file: "lc" },
+            { id: 3, pId: 0, name: "Timber Lashing Systems", file: "", open: true },
+            { id: 301, pId: 3, name: "Lashing Eye plate", file: "lep" },
+            { id: 302, pId: 3, name: "Snatch Block", file: "sb" },
+            { id: 4, pId: 0, name: "Lifting Equipment", file: "", open: true },
+            { id: 401, pId: 4, name: "Hatch cover lifting gear", file: "hclg" },
+            { id: 402, pId: 4, name: "Spreaders", file: "s" },
+            { id: 402, pId: 4, name: "Lifting Beams", file: "lb" },
+            { id: 402, pId: 4, name: "Truck, van & car lifting gear", file: "tvclg" }
+        ];
+
+        var loadReady = function () {
+            var bodyH = demoIframe.contents().find("body").get(0).scrollHeight,
+                htmlH = demoIframe.contents().find("html").get(0).scrollHeight,
+                maxH = Math.max(bodyH, htmlH),
+                minH = Math.min(bodyH, htmlH),
+                h = demoIframe.height() >= maxH ? minH : maxH;
+            if (h < 530) h = 530;
+            demoIframe.height(h);
+        }
+
+        var loadPhoto = function () {
+            $(".gallery a[rel^='prettyPhoto']").prettyPhoto({ theme: 'dark_rounded' });
+        }
+
+        var registerProductDetailEvent = function () {
+            $(".imgtitle a").on('click', function () {
+                var hyperlink = $(this);
+                var tempCategory = hyperlink.attr('categoryType');
+                var tempProductTypeId = hyperlink.attr('productTypeId');
+                queryDetailData(tempCategory, tempProductTypeId, subQueryPage.PageIndex, subQueryPage.PageSize);
+            });
+        }
+
+        //主查询
+        var queryData = function (cType, cIndex, cSize) {
+            $("#productDetailContainer").slideUp(200);
+            $("#productTypeContainer, #pageMasger").slideDown(1000);
+            $('#productDetailList').html('');
+            $.ajax({
+                url: "GetProductList",
+                type: "GET",
+                async: false,
+                dataType: "json",
+                data: { categoryType: cType, pgIndex: cIndex, pgSize: cSize },
+                success: function (data) {
+                    if (data == undefined) {
+                        alert('请求未正常响应');
+                        return;
+                    }
+                    mainQueryPage.CategoryType = cType;
+                    mainQueryPage.PageIndex = cIndex;
+                    mainQueryPage.PageSize = cSize;
+
+                    $(".nodata").slideUp();
+                    $('#productList li').slideUp();
+                    if (data.Message != 'ok') {
+                        alert('data.Message');
+                        return;
+                    }
+                    $('#productList').html('');
+                    var html = $("#modeProduct").render(data.Data);
+                    $('#productList').html(html);
+                    $('#productList li').slideDown(1000);
+                    if (data.Data.length == 0) $(".nodata").slideDown(1000);
+                    registerProductDetailEvent();
+                    $('#pageMasger').pagination({
+                        total: data.total,
+                        pageSize: cSize,
+                        showPageList: false,
+                        showRefresh: false,
+                        onSelectPage: function (pageNumber, pageSize) {
+                            mainQueryPage.PageIndex = pageNumber;
+                            mainQueryPage.PageSize = pageSize;
+                            queryData(cType, pageNumber, pageSize);
+                        }
+                    });
+                    loadPhoto();
+                }
+            });
+
+        };
+
+
+        //子查询
+        var queryDetailData = function (cType, cProductTypeId, cIndex, cSize) {
+            $("#pageMasger").hide();
+            $("#productTypeContainer").slideUp(200);
+            $("#productDetailContainer").slideDown(1000);
+            $('#productList li').html('');
+            $.ajax({
+                url: "GetProductDetailList",
+                type: "GET",
+                async: false,
+                dataType: "json",
+                data: { categoryType: cType, pgIndex: cIndex, pgSize: cSize, productTypeId: cProductTypeId },
+                success: function (data) {
+                    if (data == undefined) { alert('请求未正常响应'); return; }
+                    $(".nodata").slideUp();
+                    $('#productDetailList li, #productDetail li').slideUp();
+                    if (data.Message != 'ok') { alert('data.Message'); return; }
+                    $('#productDetailList').html('');
+                    if (data.Data != undefined) {
+                        var html = $("#jsProductDeteil").render(data.Data);
+                        $('#productDetailList').html(html);
+                    }
+                    if (data.ProductType != undefined) {
+                        //$('#proImage').attr('src', data.ProductType.Url1);
+                        $('#proName').text(data.ProductType.Title);
+                    }
+                    $('#productDetailList li, #productDetail li').slideDown(1000);
+                    if (data.Data.length == 0) $(".nodata").slideDown(1000);
+                    $('#myTab a:first').tab('show');
+                }
+            });
+
+        };
+
+
+        $(function () {
+
+            var t = $("#productCatetory");
+            $.fn.zTree.init(t, setting, zNodes);
+            demoIframe = $("#testIframe");
+            demoIframe.bind("load", loadReady);
+            var zTree = $.fn.zTree.getZTreeObj("tree");
+            if (zTree != null) {
+                var selectNode = zTree.getNodeByParam("id", 101);
+                if (selectNode != null)
+                    zTree.selectNode(selectNode);
+            }
+
+            $('.bwWrapper').BlackAndWhite({
+                hoverEffect: true,
+                webworkerPath: false,
+                responsive: true,
+                invertHoverEffect: false
+            });
+            $("#btnGoback").click(function () {
+                queryData(mainQueryPage.CategoryType, mainQueryPage.PageIndex, mainQueryPage.PageSize);
+            });
+
+            $("#lblProductCategoryName").text('Raised Socketk');
+            $('#proImage').jqthumb({
+                height: 600,
+                width: 480,
+                after: function (imgObj) {
+                    imgObj.css('opacity', 0).animate({ opacity: 1 }, 1000);
+                }
+            });
+
+            //初始化
+            queryData(mainQueryPage.CategoryType, mainQueryPage.PageIndex, mainQueryPage.PageSize);
+        });
+
+    </script>
+}
+
+@section jovlandTitle{
+}
+@section jovlandCrumbs{
+}
+
+<div class="row">
+    <div class="col-md-3">
+        <p class="">
+            <input type="text" id="btnSearch" placeholder="Product keyword" style="width: 150px;" />
+            <button>Search</button>
+        </p>
+        <ul id="productCatetory" class="ztree" style="width: auto; overflow: auto;"></ul>
+    </div>
+    <div class="col-md-9">
+
+
+        <!-- productType-->
+        <div id="productTypeContainer">
+
+            <p class="productTypeCategory"><span id="lblProductCategoryName">Product Types</span></p>
+            <!-- productType_list 5 Column -->
+            <div class="gallery_list gallery_list_col_4 gallery">
+                <ul id="productList"></ul>
+            </div>
+            <div id="pageMasger" style="display: none;"></div>
+            <!-- productType_list -->
+        </div>
+
+        <!-- productDetailType-->
+        <div id="productDetailContainer" style="display: none;">
+            <p class="productTypeCategory">Product-type Detail  <a id="btnGoback" href="javascript:void();">back</a></p>
+            <div>
+                <ul id="myTab" class="nav nav-tabs">
+                    <li class="active">
+                        <a href="#designDoc" data-toggle="tab" id="proName">Product-Name</a>
+                    </li>
+                    <li>
+                        <a href="#detailList" data-toggle="tab">Products</a>
+                    </li>
+                    <li></li>
+                </ul>
+
+                <div id="myTabContent" class="tab-content">
+                    <div class="tab-pane fade in active" id="designDoc">
+                        <div class="sampleImage" id="sampleImage">
+                            <img id="proImage" src="@Href("~/Uploads/Products/IMG_5340.JPG")"  />
+                        </div>
+                    </div>
+                    <div class="tab-pane fade" id="detailList">
+                        <div style="padding: 10px 20px;">
+                            <ul id="productDetailList"></ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="nodata">Not found data.</div>
+    </div>
+
+</div>
+<!--JSRENDER模板-->
+<script id="modeProduct" type="text/x-jsrender">    
+    <li style='display:none;'>
+        <div class="img bwWrapper">
+            <a href="{{:Url2}}" rel="prettyPhoto[gallery2]">
+                <img src="{{:Url1}}" width="142" height="172" alt="{{:Title}}" />
+            </a>
+        </div>
+        <div class="imgtitle">
+            <a href='javascript:void();' categoryType="{{:Category}}" productTypeId="{{:ProductId}}">{{:Title}}</a>
+        </div>
+    </li>
+</script>
+
+<script id="jsProductDeteil" type="text/x-jsrender">    
+    <li style='display:none;'>
+        <a href="{{:AttachUrl}}" url="{{:AttachUrl}}" rel="prettyPhoto[gallery2]">{{:ProductName}}.</a>
+    </li>
+</script>

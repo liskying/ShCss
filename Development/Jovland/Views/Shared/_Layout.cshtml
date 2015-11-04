@@ -1,0 +1,120 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title>@ViewBag.Title Cargo Secring Systems</title>
+
+    <link rel="icon" type="image/png" href="@Href("~/Content/images/favicon.ico")" />
+    <link rel="apple-touch-icon" href="@Href("~/Content/images/apple-touch-icon.png")" />
+    <link rel="apple-touch-icon" sizes="72x72" href="@Href("~/Content/images/apple-touch-icon-72x72.png")" />
+    <link rel="apple-touch-icon" sizes="114x114" href="@Href("~/Content/images/apple-touch-icon-114x114.png")" />
+    <link href='http://fonts.googleapis.com/css?family=PT+Sans:400,400italic,700,700italic' rel='stylesheet' type='text/css' />
+
+    <link href="@Href("~/Content/customer/style.css")" rel="stylesheet"/>
+    <link href="@Href("~/Content/customer/responsive.css")" rel="stylesheet"/>
+    <link href="@Href("~/Content/bootstrap/bootstrap.css")" rel="stylesheet"/>
+    <link href="@Href("~/Content/bootstrap/bootstrap-theme.css")" rel="stylesheet"/>
+
+    <script src="@Href("~/Scripts/jquery-2.1.4.min.js")"></script>
+    <script src="@Href("~/Scripts/jquery-migrate-1.1.1.js")"></script>
+    <script src="@Href("~/Scripts/bootstrap/bootstrap.js")"></script>
+    <script src="@Href("~/Scripts/customer/jquery.bxSlider.min.js")"></script>
+    <script src="@Href("~/Scripts/customer/jquery.blackandwhite.min.js")"></script>
+    <script src="@Href("~/Scripts/customer/js_func.js")"></script>
+
+    <!--[if lt IE 9]>
+    <script src=""@Href("~/Scripts/ie9.js")">IE7_PNG_SUFFIX=".png";</script>
+    <script src="@Url.Content("~/Scripts/json2.js")"  type="text/javascript"></script>
+    <![endif]-->
+
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    @RenderSection("scripts", false)
+
+</head>
+<body>
+    <!-- page.Top -->
+    <div class="container-fluid">
+        <div class="container wraper">
+            <div class="row">
+                <div class="col-md-12">
+                    <header class="header">
+                        <a class="logo" id="logo"  href="@Href("~/Home/Index")">Cargo Securing Systems</a>
+                        <nav>
+                            <!-- top menu -->
+                            <ul>
+                                <li><a href="@Href("~/Home/Index")">Home</a></li>
+                                <li><a href="@Href("~/Home/AboutUs")">About Us</a></li>
+                                <li><a href="@Href("~/Services/Index")">Design & Services</a>
+                                    <ul>
+                                        <li><a href="@Href("~/Services/Team")">Team</a></li>
+                                    </ul>
+                                </li>
+                                <li><a href="@Href("~/Products/Index")">Products</a></li>
+                                @*<li><a href="@Href("~/Download/Index")">Downloads</a>
+                                    <ul>
+                                        <li><a href="@Href("~/Download/Downloadlist?categoryType=cs")">Container Securing Systems</a></li>
+                                        <li><a href="@Href("~/Download/Downloadlist?categoryType=cl")">Car Lashing Systems</a></li>
+                                        <li><a href="@Href("~/Download/Downloadlist?categoryType=tl")">Timber Lashing Systems</a></li>
+                                        <li><a href="@Href("~/Download/ComPerfomance")">Report Form</a></li>
+                                    </ul>
+                                </li>*@
+                                <li><a href="@Href("~/Home/ContactUs")">Contact Us</a></li>
+                            </ul>
+                            <!-- /top menu -->
+                        </nav>
+                    </header>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- page.Top -->
+
+    <!-- top_fullwidth_bar -->
+    <div class="container-fluid">
+        <div class="content_block">
+            <!-- top_title -->
+            <div class="top_title">
+                <div class="wraper">
+                    <h2 style="color: red;">更高質量，更好服務，更安全
+                        @if (IsSectionDefined("jovlandTitle"))
+                        {
+                            @RenderSection("jovlandTitle");
+                        }
+                        <span>Better Quality, Better Service, Safer Logistics</span>
+                    </h2>
+                    @if (IsSectionDefined("jovlandCrumbs"))
+                    {
+                        @RenderSection("jovlandCrumbs")
+                    }
+                </div>
+            </div>
+            <!-- /top_title -->
+        </div>
+    </div>
+    <!-- top_fullwidth_bar -->
+
+
+    <!-- page.Content -->
+    <div class="container content_block">
+        <div class="row">
+            <div class="col-md-12 ">
+                @RenderBody()
+            </div>
+        </div>
+    </div>
+    <!-- page.Content -->
+
+    <p></p>
+
+    <!-- copyright -->
+    <div class="copyright">
+        <div class="wraper">
+            <p><span>Copyright 2015 Construct. Collect from liwenxue </span>All Rights Reserve </p>
+            <a class="top" href="#">Back to the top</a>
+        </div>
+    </div>
+    <!-- /copyright -->
+</body>
+</html>

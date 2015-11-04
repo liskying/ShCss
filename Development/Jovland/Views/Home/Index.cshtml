@@ -1,0 +1,152 @@
+﻿@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@section scripts{
+    <link href="@Href("~/Content/customer/home.index.css")" type="text/css" rel="stylesheet"/>
+    <script type="text/javascript">
+        $(function () {
+            $('.features_slider').bxSlider({
+                auto: false,
+                displaySlideQty: 5,
+                moveSlideQty: 1,
+                speed: 1000
+            });
+            $('.bwWrapper').BlackAndWhite({
+                hoverEffect: true,
+                webworkerPath: false,
+                responsive: true,
+                invertHoverEffect: false
+            });
+        })
+    </script>
+}
+
+@section jovlandTitle{
+}
+@section jovlandCrumbs{
+    <ul>
+        <li><a href="@Href("~/Home/Index")">Home</a></li>
+    </ul>
+}
+
+
+<div class="companyContainer">
+    <div class="row">
+        <div class="col-md-8">
+            <span class="companyTitle">Shanghai Jovland Industrial Co.Ltd.</span>
+            <div>
+                Shanghai Jovland Industrial Co.Ltd. is specialized in providing the overall securing solution for shipping cargo. We could provide loading design and lashing design of cargo, drawing approval and products for container ship, Ro-Ro ship, lumber carrier and bulk carriers with plenty of knowledge and experience.
+            </div>
+            <div>
+                Company products include container lashing equipment, car/truck lashing equipment, timber lashing equipment, heavy cargo lashing equipment, rigging and cargo lifting equipment, etc.
+            </div>
+            <div>
+                Factory passed the ISO90001 quality management system certification; all products are approved by Classification Societies. Include ABS, GL, LR, DNV, BV, CCS, RINA, KR and NK, etc
+            </div>
+        </div>
+        <div class="col-md-4">
+            <img src="@Href("~/Content/images/home.Instroduction/changfang1.JPG")" width="200" height="200"/>
+            <p>Plant-one</p>
+            <img src="@Href("~/Content/images/home.Instroduction/changfang2.JPG")" width="200" height="200"/>
+            <p>Plant-two</p>
+        </div>
+    </div>
+</div>
+
+
+<div>
+
+    <!-- bc_list -->
+    <div class="bc_list">
+        <ul>
+            <li>
+                <div class="bwWrapper">
+                    <a href="@Href("~/Home/AboutUs")">
+                        <img src="@Href("~/Content/images/home.index/feature_1.png")" alt="" /></a>
+                </div>
+                <h4>About Us</h4>
+                <p>Fugiat dapibus, tellus ac cursus commodo, mauesris condime ntum nibh, ut fermentum mas justo sitters amet risus. Cras mattis cosi sectetut amet fermens etrsaters  tum aecenas faucib sadips amets.</p>
+            </li>
+            <li>
+                <div class="bwWrapper">
+                    <a href="@Href("~/Products/Index")">
+                        <img src="@Href("~/Content/images/home.index/feature_2.png")" alt="" /></a>
+                </div>
+                <h4>Design & Services</h4>
+                <p>Fugiat dapibus, tellus ac cursus commodo, mauesris condime ntum nibh, ut fermentum mas justo sitters amet risus. Cras mattis cosi sectetut amet fermens etrsaters  tum aecenas faucib sadips amets.</p>
+            </li>
+            <li>
+                <div class="bwWrapper">
+                    <a href="@Href("~/Services/Index")">
+                        <img src="@Href("~/Content/images/home.index/feature_3.png")" alt="" /></a>
+                </div>
+                <h4>Products</h4>
+                <p>Fugiat dapibus, tellus ac cursus commodo, mauesris condime ntum nibh, ut fermentum mas justo sitters amet risus. Cras mattis cosi sectetut amet fermens etrsaters  tum aecenas faucib sadips amets.</p>
+            </li>
+        </ul>
+    </div>
+    <!-- /bc_list -->
+
+
+
+    <!-- client list -->
+    <div class="featured_list client_list">
+        <div class="features_slider_wrap">
+            <h3>Our Most Successful Project Performance</h3>
+            <ul class="features_slider">
+                <li>
+                    <div>
+                        <div class="bwWrapper">
+                            <a href="#">
+                                <img src="@Href("~/Content/images/client_logos/client_logo_1.png")" alt="" /></a>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <div>
+                        <div class="bwWrapper">
+                            <a href="#">
+                                <img src="@Href("~/Content/images/client_logos/client_logo_2.png")" alt="" /></a>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <div>
+                        <div class="bwWrapper">
+                            <a href="#">
+                                <img src="@Href("~/Content/images/client_logos/client_logo_3.png")" alt="" /></a>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <div>
+                        <div class="bwWrapper">
+                            <a href="#">
+                                <img src="@Href("~/Content/images/client_logos/client_logo_4.png")" alt="" /></a>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <div>
+                        <div class="bwWrapper">
+                            <a href="#">
+                                <img src="@Href("~/Content/images/client_logos/client_logo_5.png")" alt="" /></a>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <div>
+                        <div class="bwWrapper">
+                            <a href="#">
+                                <img src="@Href("~/Content/images/client_logos/client_logo_6.png")" alt="" /></a>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <!-- /client list -->
+
+</div>

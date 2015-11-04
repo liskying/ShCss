@@ -1,0 +1,73 @@
+﻿
+.companyContainer {
+    margin-bottom: 30px;
+    line-height: 25px;
+
+}
+.companyTitle {
+    font-size: 1.3em;
+    font-weight: 600;
+}
+
+.companyServicePro {
+    font-family: 隶书;
+    /*font-size: 1.2em;*/
+    font-weight: 700;
+    margin-bottom: 30px;
+
+}
+
+.companyImages {
+    margin-bottom: 30px;
+    clear: both;
+}
+.companyImages li {
+    width: 48%;
+    float: left;
+    height: 360px;
+    margin-right: 20px;
+}
+
+    .companyImages li img {
+        height: 300px;
+        width: 100%;
+    }
+
+     .companyImages li p {
+         height: 40px;
+         padding-top: 20px;
+         line-height: 25px;
+         /*font-size: 1.5em;*/
+         font-family: 黑体;
+         text-align: center;
+     }
+
+     .contactusContainer {
+         margin-bottom: 50px;
+     }
+      .contactusContainer .contactOffice {
+          /*font-size: 3.5em;*/
+          font-family: 黑体;
+          margin-bottom: 10px;
+          font-weight: 700;
+      }
+      .contactusContainer div .contactusTitle {
+          /*font-size: 1.8em;*/
+          text-align:left;
+          padding-left: 20px;
+          border-bottom: 1px #d9d9de solid;
+          line-height: 30px;
+
+      }
+      .contactusContainer div .contactusContent {
+          /*font-size: 1.8em;*/
+          text-align:left;
+          padding-left: 10px;
+          border-bottom: 1px #d9d9de solid;
+          line-height: 30px;
+      }
+      
+      .contactusContainer div.contactusMap {
+          margin-top: 20px;
+          margin-bottom: 20px;
+      }

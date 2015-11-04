@@ -1,0 +1,87 @@
+﻿@{
+    ViewBag.Title = "ContactUs";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@section scripts{
+    <link href="@Href("~/Content/customer/home.index.css")" type="text/css" rel="stylesheet"/>
+
+
+    <script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=18h7POVhl0wNfvrRdMeGLK1h"></script>
+    <script type="text/javascript" src="http://developer.baidu.com/map/jsdemo/demo/convertor.js"></script>
+    <script type="text/javascript">
+        var map = null;
+        $(function () {
+
+            var point = new BMap.Point(121.440526, 31.207869);
+            map = new BMap.Map("allmap");
+            map.centerAndZoom(point, 16);
+            map.addControl(new BMap.MapTypeControl());
+
+            var myGeo = new BMap.Geocoder();
+            myGeo.getPoint("上海市淮海西路55号", function (varPoint) {
+                if (varPoint) {
+                    map.centerAndZoom(varPoint, 15);
+                    var marker = new BMap.Marker(point);
+                    map.addOverlay(marker);
+                }
+            });
+
+        });
+    </script>
+}
+
+@section jovlandTitle{
+}
+@section jovlandCrumbs{
+}
+
+
+<!-- contact_us -->
+<div class="contactusContainer">
+    <div class="contactOffice">Shanghai Office</div>
+    <div class="row">
+        <div class="col-md-2 contactusTitle">Add:</div>
+        <div class="col-md-10 contactusContent">
+            Room288, No.55 Huaihai Xi Road, Xuhui Disrict of Shanghai, China
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-2 contactusTitle">P.C:</div>
+        <div class="col-md-10 contactusContent">
+            200030
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-2 contactusTitle">Tel:</div>
+        <div class="col-md-10 contactusContent">
+            +86 21 61999528	+86 21 5230 6816
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-2 contactusTitle">Fax:</div>
+        <div class="col-md-10 contactusContent">
+            +86 21 61924108
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-2 contactusTitle">24h Serves:</div>
+        <div class="col-md-10 contactusContent">
+            +86 139 1685 8415
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-2 contactusTitle">E-Mail:</div>
+        <div class="col-md-10 contactusContent">
+            sales@jovland.com
+        </div>
+    </div>
+    <div class="contactusMap">
+        <div id="allmap" style="width: 100%; height: 300px;"></div>
+    </div>
+</div>
+<!-- /contact_us -->
+
+
+
+

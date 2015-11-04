@@ -1,0 +1,43 @@
+﻿
+.productTypeCategory {
+    font-size: 1.2em;
+    font-weight: 600;
+}
+
+#productDetailList {
+    list-style: decimal;
+    margin-left: 20px;
+}
+
+    #productDetailList li {
+        line-height: 30px;
+        /*font-size: 1.1em;*/
+        list-style: decimal;
+        list-style-position: outside;
+        float: left;
+        width: 24%;
+        overflow-x: hidden;
+        display: inline-block;
+        margin-right: 1%;
+        border-bottom-style: groove;
+    }
+
+.productDetailTitle {
+    line-height: 30px;
+    /*font-size: 1.2em;*/
+}
+
+#btnGoback {
+    float: right;
+}
+
+.sampleImage {
+    overflow:scroll;
+    padding: 10px 0px;
+    text-align: center;
+    padding-top: 30px;
+}
+
+    .sampleImage div {
+        margin: 0px auto;
+    }
