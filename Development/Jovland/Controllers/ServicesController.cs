@@ -20,7 +20,15 @@ namespace Jovland.Controllers
         {
             return View();
         }
-        public ActionResult Faq()
+        public ActionResult Cship()
+        {
+            return View();
+        }
+        public ActionResult Rrship()
+        {
+            return View();
+        }
+        public ActionResult Tship()
         {
             return View();
         }

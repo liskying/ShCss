@@ -1,0 +1,10 @@
+﻿.serviceContent {
+    font-weight: 500;
+    text-indent: 20px;
+    line-height: 25px;
+    font-family: "微软雅黑", "黑体";
+}
+
+    .serviceContent div {
+        margin: 50px auto;
+    }

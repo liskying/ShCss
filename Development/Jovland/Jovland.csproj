@@ -140,6 +140,7 @@
     <Content Include="Content\customer\home.index.css" />
     <Content Include="Content\customer\home.products.css" />
     <Content Include="Content\customer\responsive.css" />
+    <Content Include="Content\customer\service.index.css" />
     <Content Include="Content\customer\style.css" />
     <Content Include="Content\easyuithemes\black\accordion.css" />
     <Content Include="Content\easyuithemes\black\calendar.css" />
@@ -514,6 +515,8 @@
     <Content Include="Content\images\home.Instroduction\changfang2.JPG" />
     <Content Include="Content\images\home.Instroduction\changfang1.JPG" />
     <Content Include="Content\images\home.Instroduction\Heattreatmentmachine.JPG" />
+    <Content Include="Content\images\home.services\IMG_5320.JPG" />
+    <Content Include="Content\images\home.services\IMG_5322.JPG" />
     <Content Include="Content\images\img.png" />
     <Content Include="Content\images\img2.png" />
     <Content Include="Content\images\index2_bg.png" />
@@ -834,6 +837,10 @@
     <Content Include="Views\Services\Index.cshtml" />
     <Content Include="Views\Services\Team.cshtml" />
     <Content Include="Views\Services\Faq.cshtml" />
+    <Content Include="Views\Services\Cship.cshtml" />
+    <Content Include="Views\Services\Rrship.cshtml" />
+    <Content Include="Views\Services\Tship.cshtml" />
+    <Content Include="Views\Services\副本 Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

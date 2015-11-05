@@ -17,7 +17,7 @@
       <publishTime>10/26/2015 22:17:35</publishTime>
     </File>
     <File Include="bin/Jovland.dll">
-      <publishTime>11/04/2015 00:39:18</publishTime>
+      <publishTime>11/05/2015 23:38:16</publishTime>
     </File>
     <File Include="bin/Microsoft.Web.Infrastructure.dll">
       <publishTime>10/26/2015 22:18:20</publishTime>
@@ -92,7 +92,7 @@
       <publishTime>10/26/2015 22:57:13</publishTime>
     </File>
     <File Include="Content/customer/home.index.css">
-      <publishTime>11/03/2015 21:30:59</publishTime>
+      <publishTime>11/05/2015 23:49:36</publishTime>
     </File>
     <File Include="Content/customer/home.products.css">
       <publishTime>11/04/2015 00:32:59</publishTime>
@@ -100,8 +100,11 @@
     <File Include="Content/customer/responsive.css">
       <publishTime>10/26/2015 23:38:52</publishTime>
     </File>
+    <File Include="Content/customer/service.index.css">
+      <publishTime>11/05/2015 23:13:22</publishTime>
+    </File>
     <File Include="Content/customer/style.css">
-      <publishTime>11/02/2015 00:14:19</publishTime>
+      <publishTime>11/05/2015 22:00:32</publishTime>
     </File>
     <File Include="Content/easyuithemes/black/accordion.css">
       <publishTime>11/01/2015 16:13:44</publishTime>
@@ -1234,6 +1237,12 @@
     <File Include="Content/images/home.Instroduction/paint.jpg">
       <publishTime>10/31/2015 14:28:15</publishTime>
     </File>
+    <File Include="Content/images/home.services/IMG_5320.JPG">
+      <publishTime>11/05/2015 23:00:39</publishTime>
+    </File>
+    <File Include="Content/images/home.services/IMG_5322.JPG">
+      <publishTime>11/05/2015 23:10:48</publishTime>
+    </File>
     <File Include="Content/images/img.png">
       <publishTime>10/26/2015 23:42:16</publishTime>
     </File>
@@ -2120,13 +2129,13 @@
       <publishTime>10/31/2015 15:45:59</publishTime>
     </File>
     <File Include="Views/Home/AboutUs.cshtml">
-      <publishTime>11/02/2015 00:35:39</publishTime>
+      <publishTime>11/05/2015 23:33:58</publishTime>
     </File>
     <File Include="Views/Home/ContactUs.cshtml">
-      <publishTime>11/02/2015 00:35:54</publishTime>
+      <publishTime>11/05/2015 22:33:27</publishTime>
     </File>
     <File Include="Views/Home/Index.cshtml">
-      <publishTime>11/02/2015 01:13:58</publishTime>
+      <publishTime>11/05/2015 23:53:53</publishTime>
     </File>
     <File Include="Views/Home/Login.cshtml">
       <publishTime>10/26/2015 22:21:30</publishTime>
@@ -2135,22 +2144,34 @@
       <publishTime>10/26/2015 22:21:43</publishTime>
     </File>
     <File Include="Views/Products/Index.cshtml">
-      <publishTime>11/04/2015 00:38:07</publishTime>
+      <publishTime>11/05/2015 20:59:05</publishTime>
+    </File>
+    <File Include="Views/Services/Cship.cshtml">
+      <publishTime>11/05/2015 22:25:40</publishTime>
     </File>
     <File Include="Views/Services/Faq.cshtml">
       <publishTime>10/27/2015 20:35:58</publishTime>
     </File>
     <File Include="Views/Services/Index.cshtml">
-      <publishTime>11/02/2015 00:36:27</publishTime>
+      <publishTime>11/05/2015 23:13:59</publishTime>
+    </File>
+    <File Include="Views/Services/Rrship.cshtml">
+      <publishTime>11/05/2015 22:25:56</publishTime>
     </File>
     <File Include="Views/Services/Team.cshtml">
       <publishTime>11/02/2015 00:36:35</publishTime>
+    </File>
+    <File Include="Views/Services/Tship.cshtml">
+      <publishTime>11/05/2015 22:26:06</publishTime>
+    </File>
+    <File Include="Views/Services/副本 Index.cshtml">
+      <publishTime>11/05/2015 22:36:31</publishTime>
     </File>
     <File Include="Views/Shared/Error.cshtml">
       <publishTime>10/26/2015 22:17:22</publishTime>
     </File>
     <File Include="Views/Shared/_Layout.cshtml">
-      <publishTime>11/02/2015 00:44:37</publishTime>
+      <publishTime>11/05/2015 22:26:13</publishTime>
     </File>
     <File Include="Views/Web.config">
       <publishTime>10/26/2015 22:17:22</publishTime>
@@ -2159,7 +2180,7 @@
       <publishTime>10/26/2015 22:17:22</publishTime>
     </File>
     <File Include="Web.config">
-      <publishTime>11/04/2015 00:39:43</publishTime>
+      <publishTime>11/05/2015 23:54:01</publishTime>
     </File>
   </ItemGroup>
 </Project>

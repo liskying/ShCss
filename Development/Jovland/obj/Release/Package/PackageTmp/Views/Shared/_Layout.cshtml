@@ -48,6 +48,9 @@
                                 <li><a href="@Href("~/Home/AboutUs")">About Us</a></li>
                                 <li><a href="@Href("~/Services/Index")">Design & Services</a>
                                     <ul>
+                                        <li><a href="@Href("~/Services/Cship")">Container ship</a></li>
+                                        <li><a href="@Href("~/Services/Rrship")">Ro-Ro ship</a></li>
+                                        <li><a href="@Href("~/Services/Tship")">Timber ship</a></li>
                                         <li><a href="@Href("~/Services/Team")">Team</a></li>
                                     </ul>
                                 </li>
@@ -76,13 +79,14 @@
         <div class="content_block">
             <!-- top_title -->
             <div class="top_title">
-                <div class="wraper">
-                    <h2 style="color: red;">更高質量，更好服務，更安全
+                <div class="wraper ">
+                    <h2 style="color: red;">
+                        <strong>更高質量，更好服務，更安全</strong>
                         @if (IsSectionDefined("jovlandTitle"))
                         {
                             @RenderSection("jovlandTitle");
                         }
-                        <span>Better Quality, Better Service, Safer Logistics</span>
+                        <span><strong><i>Better Quality, Better Service, Safer Logistics</i></strong></span>
                     </h2>
                     @if (IsSectionDefined("jovlandCrumbs"))
                     {
